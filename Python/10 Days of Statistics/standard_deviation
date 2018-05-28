@@ -1,0 +1,17 @@
+import sys
+import math
+
+data = sys.stdin.readlines()
+number_of_elements = int(data[0].strip()) 
+datapoints = list(map(int,data[1].split()))
+
+mean = round(sum(datapoints)/number_of_elements,1)
+
+squared_distances_from_mean = 0
+
+for i in range(number_of_elements):
+    squared_distances_from_mean += (datapoints[i] - mean)**2
+
+standard_deviation = round(math.sqrt(squared_distances_from_mean/number_of_elements),1)
+
+print(standard_deviation)
